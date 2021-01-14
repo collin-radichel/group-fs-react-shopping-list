@@ -34,6 +34,10 @@ function App() {
       });
     }
 
+
+    // const buyItems = ()=>{
+
+    // }
     return (
         <div className="App">
             <Header />
