@@ -1,3 +1,4 @@
+
 import { useState, useEffect} from 'react'
 import axios from 'axios';
 import Header from '../Header/Header.jsx'
@@ -10,7 +11,7 @@ import './App.css';
 function App() {
     const [shoppingList, setShoppingList] = useState([]);
     const [newItem, setNewItem] = useState('');
-    const [newQuanitiy, setNewQuantity] = useState('');
+    const [newQuantity, setNewQuantity] = useState('');
     const [newUnit, setNewUnit] = useState('');
 
     //on load
@@ -19,7 +20,7 @@ function App() {
     }, [])
 
     // GET function
-    const fetchItems = ()=>{
+    const fetchItems = () => {
         axios({
             method: 'GET',
             url: '/shopping'
@@ -34,10 +35,7 @@ function App() {
     }
 
 
-    // const buyItems = ()=>{
-
-    // }
-
+   
     //POST function
     const addShoppingItem = () => { 
         axios.post('/shopping',
@@ -67,23 +65,39 @@ function App() {
         }
     }; //handleSubmit
   
-  function clearItems() {
+    function clearItems() {
     console.log('clearing items');
         }
 
-function resetItems() {
+    function resetItems() {
     console.log('resetting items');
         }
+
+     const buyItems = ()=>{
+        console.log('You bought the Item!!!');
+    }
 
 
     return (
         <div className="App">
             <Header />
             <main>
+                <ShoppingForm
+                newItem = {newItem}
+                setNewItem = {setNewItem}
+                newQuantity = {newQuantity}
+                setNewQuantity = {setNewQuantity}
+                newUnit = {newUnit}
+                setNewUnit = {setNewUnit}
+                handleSubmit = {handleSubmit}
+                />
                 <ShoppingList
                 clearItems = {clearItems}
                 resetItems = {resetItems}
+                shoppingList = {shoppingList}
+                
                 />
+                
             </main>
         </div>
     );

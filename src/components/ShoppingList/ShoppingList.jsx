@@ -1,6 +1,7 @@
-// import ShoppingItem from '../ShoppingItem/ShoppingItem'
+import ShoppingItem from '../ShoppingItem/ShoppingItem'
 
 function ShoppingList ({
+    shoppingList,
     clearItems,
     resetItems
 }) {
@@ -13,14 +14,16 @@ function ShoppingList ({
         </div>
 
 
-        {/* <div>
+        <div>
             {shoppingList.map(item => 
-                (<div><ShoppingItem
-                key = {shopping.id}
-                item = {item}
-                /></div>)
+                (<><div><ShoppingItem
+                key = {item.id}
+                name = {item.item}
+                quantity = {item.quantity}
+                unit = {item.unit}
+                /></div></>)
                 )}
-        </div> */}
+        </div>
         </>
     )
 }

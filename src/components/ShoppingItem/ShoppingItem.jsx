@@ -1,8 +1,10 @@
 import ShoppingList from '../ShoppingList/ShoppingList'
 
-function displayShoppingItem({
+function ShoppingItem({
 //list of deconstructed props
-item,
+name,
+quantity,
+unit,
 clearItems,
 buyItems
 
@@ -10,12 +12,12 @@ buyItems
 
     return(
         <div>
-            {item.name}
-            {item.quantity} {item.unit}
-            <button onClick={}>Buy</button>
+            <p>{name}</p>
+            <p>{quantity} {unit}</p>
+            <button onClick={buyItems}>Buy</button>
             <button onClick={clearItems}>Remove</button>
         </div>
     )
 
 
-} export default displayShoppingItem
+} export default ShoppingItem
