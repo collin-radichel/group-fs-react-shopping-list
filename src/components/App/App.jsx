@@ -29,12 +29,21 @@ function App() {
                 setNewQuantity('');
                 setNewQuantity('');
 
-                //call GET function
+                fetchItems();
             }).catch(error => {
                 alert('Error adding item');
                 console.log(error)
             })
     }; //end addShoppingItem
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (newItem){
+            addShoppingItem();
+        } else {
+            alert('This new item needs a name!');
+        }
+    }; //handleSubmit
 
     return (
         <div className="App">
