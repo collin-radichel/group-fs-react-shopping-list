@@ -16,7 +16,7 @@ router.post('/', (req, res) => {
         .then((result) => {
             console.log(`Added New Item to the Shopping List: `, list);
             res.sendStatus(201);
-        })catch((error) => {
+        }).catch((error) => {
             console.log(`Error making database query ${queryText}`, error);
             res.sendStatus(500);
         })
