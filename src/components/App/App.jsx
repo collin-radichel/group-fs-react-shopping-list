@@ -1,25 +1,19 @@
-import React from 'react';
-import ShoppingItem from '../ShoppingItem/ShoppingItem.jsx'
 import { useState, useEffect} from 'react'
-import ShoppingList from '../ShoppingList/ShoppingList'
+import axios from 'axios';
 import Header from '../Header/Header.jsx'
+import ShoppingForm from '../ShoppingForm/ShoppingForm.jsx'
+import ShoppingItem from '../ShoppingItem/ShoppingItem.jsx'
+import ShoppingList from '../ShoppingList/ShoppingList'
 import './App.css';
-
-function clearItems() {
-    console.log('clearing items');
-}
-
-function resetItems() {
-    console.log('resetting items');
-}
 
 
 function App() {
     const [shoppingList, setShoppingList] = useState([]);
     const [newItem, setNewItem] = useState('');
-    const [newQuantity, setNewQuantity] = useState('');
+    const [newQuanitiy, setNewQuantity] = useState('');
     const [newUnit, setNewUnit] = useState('');
-    
+
+    // GET function
     const fetchItems = ()=>{
         axios({
             method: 'GET',
@@ -33,6 +27,43 @@ function App() {
         console.log('Error on get:', error);
       });
     }
+
+    //POST function
+    const addShoppingItem = () => { 
+        axios.post('/shopping',
+            {
+                item: newItem,
+                quantity: newQuantity,
+                unit: newUnit
+            }).then(response => {
+                //clear inputs
+                setNewItem('');
+                setNewQuantity('');
+                setNewQuantity('');
+
+                fetchItems();
+            }).catch(error => {
+                alert('Error adding item');
+                console.log(error)
+            })
+    }; //end addShoppingItem
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (newItem){
+            addShoppingItem();
+        } else {
+            alert('This new item needs a name!');
+        }
+    }; //handleSubmit
+  
+  function clearItems() {
+    console.log('clearing items');
+        }
+
+function resetItems() {
+    console.log('resetting items');
+        }
 
     return (
         <div className="App">
