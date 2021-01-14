@@ -16,12 +16,12 @@ function ShoppingList ({
 
         <div>
             {shoppingList.map(item => 
-                (<><div><ShoppingItem
+                (<><ShoppingItem
                 key = {item.id}
-                name = {item.name}
+                name = {item.item}
                 quantity = {item.quantity}
                 unit = {item.unit}
-                /></div></>)
+                /></>)
                 )}
         </div>
         </>

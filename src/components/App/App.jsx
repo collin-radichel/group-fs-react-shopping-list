@@ -96,10 +96,6 @@ function App() {
                 resetItems = {resetItems}
                 shoppingList = {shoppingList}
                 />
-                <ShoppingItem
-                clearItems = {clearItems}
-                buyItems = {buyItems}
-                />
             </main>
         </div>
     );
