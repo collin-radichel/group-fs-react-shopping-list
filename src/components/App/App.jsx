@@ -33,6 +33,11 @@ function App() {
       });
     }
 
+
+    // const buyItems = ()=>{
+
+    // }
+
     //POST function
     const addShoppingItem = () => { 
         axios.post('/shopping',
@@ -69,6 +74,7 @@ function App() {
 function resetItems() {
     console.log('resetting items');
         }
+
 
     return (
         <div className="App">

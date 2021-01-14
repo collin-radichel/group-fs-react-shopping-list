@@ -1,20 +1,19 @@
-
+import ShoppingList from '../ShoppingList/ShoppingList'
 
 function displayShoppingItem({
 //list of deconstructed props
-setShoppingList,
-setNewItem,
-setNewQuantity,
-setNewUnit
+item,
+clearItems,
+buyItems
+
 }){
 
     return(
         <div>
-            {props.shoppingList.map(shopping => (<p key={item.id}>{item.name}</p>))}
-            {props.shoppingList.map(shopping => (<p key={item.id}>{item.quantity} {item.unit}</p>))}
-            <p></p>
+            {item.name}
+            {item.quantity} {item.unit}
             <button onClick={}>Buy</button>
-            <button onClick={}>Remove</button>
+            <button onClick={clearItems}>Remove</button>
         </div>
     )
 
