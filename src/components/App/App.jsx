@@ -1,8 +1,17 @@
 import React from 'react';
-
 import ShoppingItem from '../ShoppingItem/ShoppingItem.jsx'
+import { useState, useEffect} from 'react'
+import ShoppingList from '../ShoppingList/ShoppingList'
 import Header from '../Header/Header.jsx'
 import './App.css';
+
+function clearItems() {
+    console.log('clearing items');
+}
+
+function resetItems() {
+    console.log('resetting items');
+}
 
 
 function App() {
@@ -29,7 +38,10 @@ function App() {
         <div className="App">
             <Header />
             <main>
-                <p>Under Construction...</p>
+                <ShoppingList
+                clearItems = {clearItems}
+                resetItems = {resetItems}
+                />
             </main>
         </div>
     );
