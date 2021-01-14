@@ -10,3 +10,4 @@ CREATE TABLE shopping (
 
 INSERT INTO shopping (item, quantity, unit)
 VALUES ('Apples', 5 , 'lbs');
+
