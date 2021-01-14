@@ -13,6 +13,11 @@ function App() {
     const [newQuanitiy, setNewQuantity] = useState('');
     const [newUnit, setNewUnit] = useState('');
 
+    //on load
+    useEffect(() => {
+        fetchItems()
+    }, [])
+
     // GET function
 
 
