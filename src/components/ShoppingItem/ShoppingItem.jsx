@@ -13,8 +13,8 @@ setNewUnit
             {props.shoppingList.map(shopping => (<p key={item.id}>{item.name}</p>))}
             {props.shoppingList.map(shopping => (<p key={item.id}>{item.quantity} {item.unit}</p>))}
             <p></p>
-            <button onClick={}>Buy</button>
-            <button onClick={}>Remove</button>
+            <button onClick={buyItems}>Buy</button>
+            <button onClick={clearItem}>Remove</button>
         </div>
     )
 
