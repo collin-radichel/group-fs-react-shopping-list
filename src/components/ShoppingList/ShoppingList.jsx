@@ -18,7 +18,7 @@ function ShoppingList ({
             {shoppingList.map(item => 
                 (<><div><ShoppingItem
                 key = {item.id}
-                name = {item.name}
+                name = {item.item}
                 quantity = {item.quantity}
                 unit = {item.unit}
                 /></div></>)

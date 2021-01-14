@@ -12,8 +12,8 @@ buyItems
 
     return(
         <div>
-            {name}
-            {quantity} {unit}
+            <p>{name}</p>
+            <p>{quantity} {unit}</p>
             <button onClick={buyItems}>Buy</button>
             <button onClick={clearItems}>Remove</button>
         </div>

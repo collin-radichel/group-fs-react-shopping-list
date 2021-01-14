@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-import { useState, useEffect} from 'react';
-=======
 
-import { useState, useEffect} from 'react'
->>>>>>> 9a529b39824cf9abc93714d2c012e456b316cf00
+import { useState, useEffect} from 'react';
+
 import axios from 'axios';
 import Header from '../Header/Header.jsx';
 import ShoppingForm from '../ShoppingForm/ShoppingForm.jsx'
@@ -99,10 +96,6 @@ function App() {
                 clearItems = {clearItems}
                 resetItems = {resetItems}
                 shoppingList = {shoppingList}
-                />
-                <ShoppingItem
-                clearItems = {clearItems}
-                buyItems = {buyItems}
                 />
             </main>
         </div>
