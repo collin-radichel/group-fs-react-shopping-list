@@ -1,6 +1,6 @@
-import { useState, useEffect} from 'react'
+import { useState, useEffect} from 'react';
 import axios from 'axios';
-import Header from '../Header/Header.jsx'
+import Header from '../Header/Header.jsx';
 import ShoppingForm from '../ShoppingForm/ShoppingForm.jsx'
 import ShoppingItem from '../ShoppingItem/ShoppingItem.jsx'
 import ShoppingList from '../ShoppingList/ShoppingList'
