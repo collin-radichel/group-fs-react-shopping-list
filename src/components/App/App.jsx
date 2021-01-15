@@ -1,6 +1,7 @@
 
 import { useState, useEffect} from 'react'
 import axios from 'axios';
+import Swal from 'sweetalert2'
 import Header from '../Header/Header.jsx'
 import ShoppingForm from '../ShoppingForm/ShoppingForm.jsx'
 import ShoppingItem from '../ShoppingItem/ShoppingItem.jsx'
@@ -65,15 +66,49 @@ function App() {
         }
     }; //handleSubmit
   
-    function clearItems() {
-    console.log('clearing items');
+    const removeItem = (id) => {
+        // call sweetalerts to make the user confirm that they want to delete
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete this item!'
+          }).then((result) => {
+              // if the Yes, delete this item! button is clicked run axios.delete
+            if (result.isConfirmed) {
+                // delete request on click of remove btn
+                axios.delete(`/shopping/${id}`).then(response => {
+                    console.log(`in removeItem with item id: `, id);
+                    fetchItems();
+                }).catch(error => {
+                    console.log(error);
+                })
+                // alert for successful delete
+              Swal.fire(
+                'Deleted!',
+                'Your item has been deleted.',
+                'success'
+              )
+            }
+          })
         }
 
-    function resetItems() {
+    
+        
+    
+
+    const clearItems = () => {
+        console.log('clearing all items');
+    }
+
+    const resetItems = () => {
     console.log('resetting items');
         }
 
-     const buyItems = ()=>{
+     const buyItem = () => {
         console.log('You bought the Item!!!');
     }
 
@@ -95,6 +130,8 @@ function App() {
                 clearItems = {clearItems}
                 resetItems = {resetItems}
                 shoppingList = {shoppingList}
+                removeItem = {removeItem}
+                buyItem = {buyItem}
                 />
             </main>
         </div>

@@ -2,22 +2,20 @@ import ShoppingList from '../ShoppingList/ShoppingList'
 
 function ShoppingItem({
 //list of deconstructed props
-name,
-quantity,
-unit,
-clearItems,
-buyItems
+item,
+removeItem,
+buyItem
 
 }){
 
     return(
         <div>
-            <p>{name}</p> 
-            <p>{quantity} {unit}</p>
-            <button onClick={buyItems}>Buy</button>
-            <button onClick={clearItems}>Remove</button>
+            <p>{item.item}</p> 
+            <p>{item.quantity} {item.unit}</p>
+            <button onClick={ () => buyItem(item.id)}>Buy</button>
+            <button onClick={ () => removeItem(item.id)}>Remove</button>
         </div>
     )
+} 
 
-
-} export default ShoppingItem
+export default ShoppingItem
