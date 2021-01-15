@@ -3,7 +3,9 @@ import ShoppingItem from '../ShoppingItem/ShoppingItem'
 function ShoppingList ({
     shoppingList,
     clearItems,
-    resetItems
+    resetItems,
+    removeItem,
+    buyItem
 }) {
     return (
         <>
@@ -16,12 +18,12 @@ function ShoppingList ({
 
         <div>
             {shoppingList.map(item => 
-                (<><div><ShoppingItem
+                (<><ShoppingItem
                 key = {item.id}
-                name = {item.name}
-                quantity = {item.quantity}
-                unit = {item.unit}
-                /></div></>)
+                item = {item}
+                removeItem = {removeItem}
+                buyItem = {buyItem}
+                /></>)
                 )}
         </div>
         </>
