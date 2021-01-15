@@ -1,27 +1,39 @@
 import ShoppingList from '../ShoppingList/ShoppingList'
+import {useState} from 'react'
 
 function ShoppingItem({
 //list of deconstructed props
 item,
-removeItem,
-buyItem
-
+removeItem
 }){
 
+    const [isPurchased, setIsPurchased] = useState(false);
+
+    const buyItem = () => {
+        console.log('You bought the Item!!!');
+        setIsPurchased(!isPurchased);
+    }
+
     return(
+        
         <div>
-<<<<<<< HEAD
-            <p>{name}</p>
-            <p>{quantity} {unit}</p>
-            <button onClick={buyItems}>Buy</button>
-            <button onClick={clearItems}>Remove</button>
-=======
+            {isPurchased ? 
+            <>
+            <p>{item.item}</p> 
+            <p>{item.quantity} {item.unit}</p>
+            <p>Purchased!</p>
+            </>
+            :
+            <>
             <p>{item.item}</p> 
             <p>{item.quantity} {item.unit}</p>
             <button onClick={ () => buyItem(item.id)}>Buy</button>
             <button onClick={ () => removeItem(item.id)}>Remove</button>
->>>>>>> 7571b0172e7b660428397f49e50a8853a3535ac2
+            </>
+            }
         </div>
+        
+        
     )
 }
 

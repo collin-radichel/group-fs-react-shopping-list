@@ -4,8 +4,7 @@ function ShoppingList ({
     shoppingList,
     clearItems,
     resetItems,
-    removeItem,
-    buyItem
+    removeItem
 }) {
     return (
         <>
@@ -28,7 +27,6 @@ function ShoppingList ({
 =======
                 item = {item}
                 removeItem = {removeItem}
-                buyItem = {buyItem}
                 /></>)
 >>>>>>> 7571b0172e7b660428397f49e50a8853a3535ac2
                 )}

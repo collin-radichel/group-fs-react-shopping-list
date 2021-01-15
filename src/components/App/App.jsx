@@ -132,9 +132,7 @@ function App() {
     console.log('resetting items');
         }
 
-     const buyItem = () => {
-        console.log('You bought the Item!!!');
-    }
+    
 
 
     return (
@@ -160,7 +158,6 @@ function App() {
                 
 =======
                 removeItem = {removeItem}
-                buyItem = {buyItem}
                 />
 >>>>>>> 7571b0172e7b660428397f49e50a8853a3535ac2
             </main>
