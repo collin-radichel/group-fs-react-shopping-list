@@ -1,0 +1,25 @@
+.shopping-item {
+    width:150px;
+    height: 150px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    background-color: azure;
+    border-width: 1px #111111;
+    border-radius: 3px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 0 4px 6px #291528;
+}
+
+.buyBtn {
+    border-radius: 3px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.removeBtn {
+    border-radius: 3px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}

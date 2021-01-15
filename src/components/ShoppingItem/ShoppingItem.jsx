@@ -1,4 +1,5 @@
 import ShoppingList from '../ShoppingList/ShoppingList'
+import './ShoppingItem.css'; 
 
 function ShoppingItem({
 //list of deconstructed props
@@ -9,11 +10,11 @@ buyItem
 }){
 
     return(
-        <div>
+        <div className="shopping-item">
             <p>{item.item}</p> 
             <p>{item.quantity} {item.unit}</p>
-            <button onClick={ () => buyItem(item.id)}>Buy</button>
-            <button onClick={ () => removeItem(item.id)}>Remove</button>
+            <button className="buyBtn" onClick={ () => buyItem(item.id)}>Buy</button>
+            <button className="removeBtn" onClick={ () => removeItem(item.id)}>Remove</button>
         </div>
     )
 }

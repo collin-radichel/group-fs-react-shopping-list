@@ -10,9 +10,9 @@ function ShoppingList ({
     return (
         <>
         <div>
-            <h2>Shopping List:</h2>
-            <button onClick={resetItems}>RESET</button>
-            <button onClick={ () => clearItems(shoppingList)}>CLEAR</button>
+            <h2 className="shopping-header" >Shopping List:</h2>
+            <button className="resetBtn" onClick={resetItems}>RESET</button>
+            <button className="clearBtn" onClick={ () => clearItems(shoppingList)}>CLEAR</button>
         </div>
 
 

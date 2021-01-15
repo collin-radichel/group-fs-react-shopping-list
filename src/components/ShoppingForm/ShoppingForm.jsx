@@ -1,3 +1,5 @@
+import './ShoppingForm.css';
+
 function ShoppingForm({
     newItem,
     setNewItem,
@@ -15,6 +17,7 @@ function ShoppingForm({
                 Item:
             </label>
             <input 
+            className="itemIn"
             type="text"
             placeholder="Enter New Item"
             value={newItem}
@@ -25,6 +28,7 @@ function ShoppingForm({
                     Quantity: 
                 </label>
                 <input
+                className="quantityIn"
                 type="number"
                 placeholder="Enter Quantity"
                 value={newQuantity}
@@ -34,13 +38,14 @@ function ShoppingForm({
                     Unit:
                 </label>
                 <input
+                className="unitIn"
                 type="text"
                 placeholder="Enter Unit Measurement"
                 value={newUnit}
                 onChange={(event) => setNewUnit(event.target.value)}
                 />
                 <div>
-                    <button type="submit">Save Item</button>
+                    <button type="submit" className="submitBtn">Save Item</button>
                 </div>
             </div>
         </form>
