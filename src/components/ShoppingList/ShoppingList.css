@@ -1,0 +1,13 @@
+
+
+.resetBtn {
+    border-radius: 3px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.clearBtn {
+    border-radius: 3px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
