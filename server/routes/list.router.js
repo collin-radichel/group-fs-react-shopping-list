@@ -42,7 +42,7 @@ router.get('/', (req,res)=> {
     })
 })//end GET Route
 
-//Delete route
+// delete route
 router.delete('/:id', (req,res) => {
     let item = req.params.id;
     console.log('Delete route called for item: ', item);
@@ -53,7 +53,20 @@ router.delete('/:id', (req,res) => {
     pool.query(queryText, [item]).then((results) => {
         res.sendStatus(204);
     })
-})// end Delete route
+})// end delete route
+
+// delete all route
+router.delete('/:shoppingList', (req,res) => {
+    let shoppingList = req.params.shoppingList
+    console.log(`Delete route called for shoppingList`, shoppingList);
+
+    const queryText = `DELETE * FROM "shopping"
+                        WHERE "shoppingList" = $1;`;
+
+    pool.query(queryText, [shoppingList]).then(results => {
+        res.sendStatus(204);
+    })
+})// end delete all route
 
 
 
