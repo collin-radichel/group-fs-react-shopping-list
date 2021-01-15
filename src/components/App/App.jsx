@@ -34,8 +34,6 @@ function App() {
       });
     }
 
-
-   
     //POST function
     const addShoppingItem = () => { 
         axios.post('/shopping',
@@ -68,7 +66,7 @@ function App() {
     const removeItem = (id) => {
         // call sweetalerts to make the user confirm that they want to delete
         Swal.fire({
-            title: 'Are you sure?',
+            title: 'Are you sure you want to delete this item?',
             text: "You won't be able to revert this!",
             icon: 'warning',
             showCancelButton: true,
@@ -96,19 +94,36 @@ function App() {
         }
 
     const clearItems = (shoppingList) => {
-        for (let i = 0; i < shoppingList.length; i++) {
-            const list = shoppingList[i];
-            console.log('clearing all items:', shoppingList);
-        axios.delete(`/shopping/${list.id}`).then(response => {
-            console.log(`clearing all items!! You wildin`, shoppingList);
-            fetchItems();
-        }).catch(error => {
-            console.log(error);
-        })
-            
-        }
-        
-    }
+         // call sweetalerts to make the user confirm that they want to delete
+         Swal.fire({
+            title: 'Are you sure you want to delete all your items?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                for (let i = 0; i < shoppingList.length; i++) {
+                    const list = shoppingList[i];
+                    console.log('clearing all items:', shoppingList);
+                axios.delete(`/shopping/${list.id}`).then(response => {
+                    console.log(`clearing all items!! You wildin`, shoppingList);
+                    fetchItems();
+                }).catch(error => {
+                    console.log(error);
+                })
+            }
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+            }
+          })
+        }  
+    
 
     const resetItems = () => {
     console.log('resetting items');
