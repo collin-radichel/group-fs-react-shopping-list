@@ -79,7 +79,7 @@ function App() {
           }).then((result) => {
               // if the Yes, delete this item! button is clicked run axios.delete
             if (result.isConfirmed) {
-                // delete request on click of remove btn
+                // axios delete request on click of Yes, delete this item!
                 axios.delete(`/shopping/${id}`).then(response => {
                     console.log(`in removeItem with item id: `, id);
                     fetchItems();
@@ -102,6 +102,7 @@ function App() {
 
     const clearItems = () => {
         console.log('clearing all items');
+        
     }
 
     const resetItems = () => {

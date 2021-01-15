@@ -42,6 +42,7 @@ router.get('/', (req,res)=> {
     })
 })//end GET Route
 
+//Delete route
 router.delete('/:id', (req,res) => {
     let item = req.params.id;
     console.log('Delete route called for item: ', item);
@@ -52,6 +53,8 @@ router.delete('/:id', (req,res) => {
     pool.query(queryText, [item]).then((results) => {
         res.sendStatus(204);
     })
-})
+})// end Delete route
+
+
 
 module.exports = router;
