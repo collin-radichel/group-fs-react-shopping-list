@@ -40,6 +40,34 @@ router.get('/', (req,res)=> {
         console.log(`Error in GET route server-side trying to make query ${queryText} `, error);
         res.sendStatus(500);
     })
-})
+})//end GET Route
+
+// delete route
+router.delete('/:id', (req,res) => {
+    let item = req.params.id;
+    console.log('Delete route called for item: ', item);
+
+    const queryText = `DELETE FROM "shopping"
+                        WHERE "id" = $1;`;
+
+    pool.query(queryText, [item]).then((results) => {
+        res.sendStatus(204);
+    })
+})// end delete route
+
+// delete all route
+router.delete('/:shoppingList', (req,res) => {
+    let shoppingList = req.params.shoppingList
+    console.log(`Delete route called for shoppingList`, shoppingList);
+
+    const queryText = `DELETE * FROM "shopping"
+                        WHERE "shoppingList" = $1;`;
+
+    pool.query(queryText, [shoppingList]).then(results => {
+        res.sendStatus(204);
+    })
+})// end delete all route
+
+
 
 module.exports = router;

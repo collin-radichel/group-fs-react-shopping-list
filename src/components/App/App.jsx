@@ -1,9 +1,9 @@
 
 import { useState, useEffect} from 'react'
 import axios from 'axios';
+import Swal from 'sweetalert2'
 import Header from '../Header/Header.jsx'
 import ShoppingForm from '../ShoppingForm/ShoppingForm.jsx'
-import ShoppingItem from '../ShoppingItem/ShoppingItem.jsx'
 import ShoppingList from '../ShoppingList/ShoppingList'
 import './App.css';
 
@@ -34,8 +34,6 @@ function App() {
       });
     }
 
-
-   
     //POST function
     const addShoppingItem = () => { 
         axios.post('/shopping',
@@ -47,7 +45,7 @@ function App() {
                 //clear inputs
                 setNewItem('');
                 setNewQuantity('');
-                setNewQuantity('');
+                setNewUnit('');
 
                 fetchItems();
             }).catch(error => {
@@ -65,15 +63,76 @@ function App() {
         }
     }; //handleSubmit
   
-    function clearItems() {
-    console.log('clearing items');
+
+    // removeItem is a function to remove one item
+    const removeItem = (id) => {
+        // call sweetalerts to make the user confirm that they want to delete
+        Swal.fire({
+            title: 'Are you sure you want to delete this item?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete this item!'
+          }).then((result) => {
+              // if the Yes, delete this item! button is clicked run axios.delete
+            if (result.isConfirmed) {
+                // axios delete request on click of Yes, delete this item!
+                axios.delete(`/shopping/${id}`).then(response => {
+                    console.log(`in removeItem with item id: `, id);
+                    fetchItems();
+                }).catch(error => {
+                    console.log(error);
+                })
+                // alert for successful delete
+              Swal.fire(
+                'Deleted!',
+                'Your item has been deleted.',
+                'success'
+              )
+            }
+          })
         }
 
-    function resetItems() {
+    // clearItems is a function to remove all items
+    const clearItems = (shoppingList) => {
+         // call sweetalerts to make the user confirm that they want to delete
+         Swal.fire({
+            title: 'Are you sure you want to delete all your items?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                for (let i = 0; i < shoppingList.length; i++) {
+                    const list = shoppingList[i];
+                    console.log('clearing all items:', shoppingList);
+                axios.delete(`/shopping/${list.id}`).then(response => {
+                    console.log(`clearing all items!! You wildin`, shoppingList);
+                    fetchItems();
+                }).catch(error => {
+                    console.log(error);
+                })
+            }
+              Swal.fire(
+                'Deleted!',
+                'All items have been deleted.',
+                'success'
+              )
+            }
+          })
+        }  
+    
+
+    const resetItems = () => {
     console.log('resetting items');
         }
 
-     const buyItems = ()=>{
+     const buyItem = () => {
         console.log('You bought the Item!!!');
     }
 
@@ -95,9 +154,15 @@ function App() {
                 clearItems = {clearItems}
                 resetItems = {resetItems}
                 shoppingList = {shoppingList}
+<<<<<<< HEAD
                 
                 />
                 
+=======
+                removeItem = {removeItem}
+                buyItem = {buyItem}
+                />
+>>>>>>> 7571b0172e7b660428397f49e50a8853a3535ac2
             </main>
         </div>
     );
