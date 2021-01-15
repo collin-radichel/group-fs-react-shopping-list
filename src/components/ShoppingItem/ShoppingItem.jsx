@@ -1,5 +1,6 @@
 import ShoppingList from '../ShoppingList/ShoppingList'
 import {useState} from 'react'
+import './ShoppingItem.css'
 
 function ShoppingItem({
 //list of deconstructed props

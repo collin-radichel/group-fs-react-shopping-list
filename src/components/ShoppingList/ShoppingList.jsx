@@ -1,4 +1,5 @@
 import ShoppingItem from '../ShoppingItem/ShoppingItem'
+import '../ShoppingItem/ShoppingItem.css'
 
 function ShoppingList ({
     shoppingList,
