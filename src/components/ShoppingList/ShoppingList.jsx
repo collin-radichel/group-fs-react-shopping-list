@@ -4,8 +4,7 @@ function ShoppingList ({
     shoppingList,
     clearItems,
     resetItems,
-    removeItem,
-    buyItem
+    removeItem
 }) {
     return (
         <>
@@ -22,7 +21,6 @@ function ShoppingList ({
                 key = {item.id}
                 item = {item}
                 removeItem = {removeItem}
-                buyItem = {buyItem}
                 /></>)
                 )}
         </div>
