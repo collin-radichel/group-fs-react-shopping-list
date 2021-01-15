@@ -12,12 +12,12 @@ function ShoppingList ({
         <div>
             <h2>Shopping List:</h2>
             <button onClick={resetItems}>RESET</button>
-            <button onClick={clearItems}>CLEAR</button>
+            <button onClick={ () => clearItems(shoppingList)}>CLEAR</button>
         </div>
 
 
         <div>
-            {shoppingList.map(item => 
+            {shoppingList.map(item =>
                 (<><ShoppingItem
                 key = {item.id}
                 item = {item}

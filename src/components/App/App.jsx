@@ -4,7 +4,6 @@ import axios from 'axios';
 import Swal from 'sweetalert2'
 import Header from '../Header/Header.jsx'
 import ShoppingForm from '../ShoppingForm/ShoppingForm.jsx'
-import ShoppingItem from '../ShoppingItem/ShoppingItem.jsx'
 import ShoppingList from '../ShoppingList/ShoppingList'
 import './App.css';
 
@@ -96,12 +95,18 @@ function App() {
           })
         }
 
-    
-        
-    
-
-    const clearItems = () => {
-        console.log('clearing all items');
+    const clearItems = (shoppingList) => {
+        for (let i = 0; i < shoppingList.length; i++) {
+            const list = shoppingList[i];
+            console.log('clearing all items:', shoppingList);
+        axios.delete(`/shopping/${list.id}`).then(response => {
+            console.log(`clearing all items!! You wildin`, shoppingList);
+            fetchItems();
+        }).catch(error => {
+            console.log(error);
+        })
+            
+        }
         
     }
 

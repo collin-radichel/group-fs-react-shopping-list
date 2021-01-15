@@ -16,6 +16,6 @@ buyItem
             <button onClick={ () => removeItem(item.id)}>Remove</button>
         </div>
     )
-} 
+}
 
 export default ShoppingItem
