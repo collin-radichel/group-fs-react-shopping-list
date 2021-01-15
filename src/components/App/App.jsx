@@ -63,6 +63,8 @@ function App() {
         }
     }; //handleSubmit
   
+
+    // removeItem is a function to remove one item
     const removeItem = (id) => {
         // call sweetalerts to make the user confirm that they want to delete
         Swal.fire({
@@ -93,6 +95,7 @@ function App() {
           })
         }
 
+    // clearItems is a function to remove all items
     const clearItems = (shoppingList) => {
          // call sweetalerts to make the user confirm that they want to delete
          Swal.fire({
