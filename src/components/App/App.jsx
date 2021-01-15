@@ -45,7 +45,7 @@ function App() {
                 //clear inputs
                 setNewItem('');
                 setNewQuantity('');
-                setNewQuantity('');
+                setNewUnit('');
 
                 fetchItems();
             }).catch(error => {
