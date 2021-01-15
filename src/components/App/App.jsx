@@ -132,9 +132,7 @@ function App() {
     console.log('resetting items');
         }
 
-     const buyItem = () => {
-        console.log('You bought the Item!!!');
-    }
+    
 
 
     return (
@@ -155,7 +153,6 @@ function App() {
                 resetItems = {resetItems}
                 shoppingList = {shoppingList}
                 removeItem = {removeItem}
-                buyItem = {buyItem}
                 />
             </main>
         </div>
