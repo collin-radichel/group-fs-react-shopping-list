@@ -117,7 +117,7 @@ function App() {
             }
               Swal.fire(
                 'Deleted!',
-                'Your file has been deleted.',
+                'All items have been deleted.',
                 'success'
               )
             }
