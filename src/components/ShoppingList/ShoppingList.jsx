@@ -20,17 +20,10 @@ function ShoppingList ({
             {shoppingList.map(item =>
                 (<><ShoppingItem
                 key = {item.id}
-<<<<<<< HEAD
-                name = {item.item}
-                quantity = {item.quantity}
-                unit = {item.unit}
-                /></div></>)
-=======
                 item = {item}
                 removeItem = {removeItem}
                 buyItem = {buyItem}
                 /></>)
->>>>>>> 7571b0172e7b660428397f49e50a8853a3535ac2
                 )}
         </div>
         </>

@@ -154,15 +154,9 @@ function App() {
                 clearItems = {clearItems}
                 resetItems = {resetItems}
                 shoppingList = {shoppingList}
-<<<<<<< HEAD
-                
-                />
-                
-=======
                 removeItem = {removeItem}
                 buyItem = {buyItem}
                 />
->>>>>>> 7571b0172e7b660428397f49e50a8853a3535ac2
             </main>
         </div>
     );
